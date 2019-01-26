@@ -1,0 +1,16 @@
+projects:
+  reactwebinar:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src/graphql
+        graphQLApiId: 7muaz25cnvh25jko6v7m7oox5q
+      endpoints:
+        prod: >-
+          https://ckd2rd7sj5drze3amqhyjzg3yi.appsync-api.us-west-2.amazonaws.com/graphql

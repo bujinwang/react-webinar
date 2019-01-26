@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "reactwebinar-20190125180507-authRole",
+            "UnauthRoleArn": "arn:aws:iam::598779390403:role/reactwebinar-20190125180507-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::598779390403:role/reactwebinar-20190125180507-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "reactwebinar-20190125180507-deployment",
+            "UnauthRoleName": "reactwebinar-20190125180507-unauthRole",
+            "StackName": "reactwebinar-20190125180507",
+            "StackId": "arn:aws:cloudformation:us-west-2:598779390403:stack/reactwebinar-20190125180507/6bfd6600-2106-11e9-a2db-0af0c7a25b8e"
+        }
+    }
+}
