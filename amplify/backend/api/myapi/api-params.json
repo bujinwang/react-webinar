@@ -1,0 +1,36 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "myapilabel",
+            "privacy": {
+                "protected": true,
+                "auth": "rw",
+                "unauth": "rw"
+            }
+        }
+    ],
+    "resourceName": "myapi",
+    "apiName": "reactwebinarbb4327d7",
+    "functionArns": [
+        {
+            "lambdaFunction": "myapilabel"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 1,
+        "authRoleName": "reactwebinar-20190125180507-authRole",
+        "unAuthRoleName": "reactwebinar-20190125180507-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "myapilabel",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

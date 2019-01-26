@@ -1,0 +1,20 @@
+{
+    "appName": "reactwebinar",
+    "roleName": "pinpointLambdaRoleecd858d6",
+    "cloudWatchPolicyName": "cloudWatchPolicyecd858d6",
+    "pinpointPolicyName": "pinpointPolicyecd858d6",
+    "authPolicyName": "pinpoint_amplify_ecd858d6",
+    "unauthPolicyName": "pinpoint_amplify_ecd858d6",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

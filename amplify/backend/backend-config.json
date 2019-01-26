@@ -1,0 +1,82 @@
+{
+    "auth": {
+        "cognito9b0f4163": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "analytics": {
+        "reactwebinar": {
+            "service": "Pinpoint",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "api": {
+        "reactwebinar": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation"
+        },
+        "myapi": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "myapilabel",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
+        }
+    },
+    "hosting": {
+        "S3AndCloudFront": {
+            "service": "S3AndCloudFront",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "storage": {
+        "dynamo0c98170f": {
+            "service": "DynamoDB",
+            "providerPlugin": "awscloudformation"
+        },
+        "amplifymyapi": {
+            "service": "DynamoDB",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "function": {
+        "reactwebinarde544013": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "storage",
+                    "resourceName": "dynamo0c98170f",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ],
+            "build": true
+        },
+        "myapilabel": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "storage",
+                    "resourceName": "amplifymyapi",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ],
+            "build": true
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "AppSyncApiName": "reactwebinar",
+    "schemaGraphql": "s3://reactwebinar-20190125180507-deployment/amplify-appsync-files/schema.graphql.1548467416604",
+    "ResolverBucket": "reactwebinar-20190125180507-deployment",
+    "ResolverRootKey": "amplify-appsync-files",
+    "DeploymentTimestamp": "1548467416604"
+}

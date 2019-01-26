@@ -1,0 +1,5 @@
+{
+    "tableName": "tableforApi",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}
