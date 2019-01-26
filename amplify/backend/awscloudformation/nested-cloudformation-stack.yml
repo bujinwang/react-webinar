@@ -83,6 +83,24 @@
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/reactwebinar-20190125180507-deployment/amplify-cfn-templates/auth/cognito9b0f4163-cloudformation-template.yml",
 				"Parameters": {
+					"authRoleName": {
+						"Ref": "AuthRoleName"
+					},
+					"unauthRoleName": {
+						"Ref": "UnauthRoleName"
+					},
+					"authRoleArn": {
+						"Fn::GetAtt": [
+							"AuthRole",
+							"Arn"
+						]
+					},
+					"unauthRoleArn": {
+						"Fn::GetAtt": [
+							"UnauthRole",
+							"Arn"
+						]
+					},
 					"identityPoolName": "cognito9b0f4163_identitypool_9b0f4163",
 					"allowUnauthenticatedIdentities": true,
 					"thirdPartyAuth": false,
@@ -120,11 +138,10 @@
 					"userpoolClientSetAttributes": false,
 					"useDefault": "default",
 					"unAuthRoleName": "reactwebinar-20190125180507-unauthRole",
-					"authRoleName": "reactwebinar-20190125180507-authRole",
 					"unAuthRoleArn": "arn:aws:iam::598779390403:role/reactwebinar-20190125180507-unauthRole",
-					"authRoleArn": "arn:aws:iam::598779390403:role/reactwebinar-20190125180507-authRole",
 					"resourceName": "cognito9b0f4163",
-					"authSelections": "identityPoolAndUserPool"
+					"authSelections": "identityPoolAndUserPool",
+					"env": "NONE"
 				}
 			}
 		},
@@ -139,9 +156,19 @@
 					"pinpointPolicyName": "pinpointPolicyecd858d6",
 					"authPolicyName": "pinpoint_amplify_ecd858d6",
 					"unauthPolicyName": "pinpoint_amplify_ecd858d6",
-					"authRoleName": "reactwebinar-20190125180507-authRole",
-					"unauthRoleName": "reactwebinar-20190125180507-unauthRole",
-					"IAMPrefix": "598779390403"
+					"authRoleName": {
+						"Ref": "AuthRoleName"
+					},
+					"unauthRoleName": {
+						"Ref": "UnauthRoleName"
+					},
+					"authRoleArn": {
+						"Fn::GetAtt": [
+							"AuthRole",
+							"Arn"
+						]
+					},
+					"env": "NONE"
 				}
 			}
 		},
@@ -151,10 +178,11 @@
 				"TemplateURL": "https://s3.amazonaws.com/reactwebinar-20190125180507-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
 					"AppSyncApiName": "reactwebinar",
-					"schemaGraphql": "s3://reactwebinar-20190125180507-deployment/amplify-appsync-files/schema.graphql.1548467416604",
+					"schemaGraphql": "s3://reactwebinar-20190125180507-deployment/amplify-appsync-files/schema.graphql.1548515691876",
 					"ResolverBucket": "reactwebinar-20190125180507-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
-					"DeploymentTimestamp": "1548467416604"
+					"DeploymentTimestamp": "1548515691876",
+					"env": "NONE"
 				}
 			}
 		},
@@ -163,6 +191,12 @@
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/reactwebinar-20190125180507-deployment/amplify-cfn-templates/api/myapi-cloudformation-template.json",
 				"Parameters": {
+					"authRoleName": {
+						"Ref": "AuthRoleName"
+					},
+					"unauthRoleName": {
+						"Ref": "UnauthRoleName"
+					},
 					"functionmyapilabelName": {
 						"Fn::GetAtt": [
 							"functionmyapilabel",
@@ -174,7 +208,8 @@
 							"functionmyapilabel",
 							"Outputs.Arn"
 						]
-					}
+					},
+					"env": "NONE"
 				}
 			}
 		},
@@ -182,7 +217,10 @@
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/reactwebinar-20190125180507-deployment/amplify-cfn-templates/hosting/template.json",
-				"Parameters": {}
+				"Parameters": {
+					"bucketName": "reactwebinar-20190125185451-hostingbucket",
+					"env": "NONE"
+				}
 			}
 		},
 		"storagedynamo0c98170f": {
@@ -192,7 +230,8 @@
 				"Parameters": {
 					"tableName": "tableforApi",
 					"partitionKeyName": "id",
-					"partitionKeyType": "S"
+					"partitionKeyType": "S",
+					"env": "NONE"
 				}
 			}
 		},
@@ -203,7 +242,8 @@
 				"Parameters": {
 					"tableName": "amplifymyapi",
 					"partitionKeyName": "id",
-					"partitionKeyType": "S"
+					"partitionKeyType": "S",
+					"env": "NONE"
 				}
 			}
 		},
@@ -223,7 +263,8 @@
 							"storagedynamo0c98170f",
 							"Outputs.Arn"
 						]
-					}
+					},
+					"env": "NONE"
 				}
 			}
 		},
@@ -243,7 +284,8 @@
 							"storageamplifymyapi",
 							"Outputs.Arn"
 						]
-					}
+					},
+					"env": "NONE"
 				}
 			}
 		}
